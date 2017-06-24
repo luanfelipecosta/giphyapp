@@ -1,0 +1,99 @@
+<div class="section">
+
+	
+	<div style="margin-bottom:60px;margin-top:30px;" class="container">
+		<div class="columns">
+			<div class="column">
+				<h2 class="title">{{ title }} </h2>
+			</div>
+		</div>
+		<div class="grid">
+			<div *ngFor="let gif of gifs | paginate: { itemsPerPage: 10, currentPage: p };let i = index async " class="grid-item">
+				<img src="{{gif.images.fixed_height.url}}" alt="">
+				<div class="gif-card-content">
+					<form class="form-inline">
+						<div class="form-group">
+							<input class="url-bar" type="text" name="url" [(ngModel)]="gif.url" >
+						</div>
+						<div class="form-group">
+							<button  id="button-{{i}}" ngxClipboard (cbOnSuccess)="isCopied(i)" [cbContent]="gif.url" class="url-copy" value="Buscar">
+								<i class="fa text-center fa-paper-plane"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="feed-container">
+		<div class="grid">
+			<div *ngFor="let gif of gifs | paginate: { itemsPerPage: 10, currentPage: p };let i = index async ">
+				<div style="background-image: url({{gif.images.fixed_height.url}});" class="item">
+					<div class="item__details">
+						jelly-o brownie sweet
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+
+
+	<!--<div class="row">
+		<div class="col-sm-12 col-lg-3" *ngFor="let gif of gifs | paginate: { itemsPerPage: 10, currentPage: p };let i = index async ">
+			<div class="thumbnail">
+				<img src="{{ gif.images.fixed_height.url }}" alt="">
+			</div>
+			<div class="caption">
+
+			</div>
+		</div>
+	</div>-->
+	<!--
+	<div class="columns is-multiline">
+		<div *ngFor="let gif of gifs | paginate: { itemsPerPage: 10, currentPage: p };let i = index async " class="column is-one-quarter">
+			
+			
+			<div class="card">
+				<div class="card-image">
+					<figure class="image">
+						<img src="{{ gif.images.fixed_height.url }}" alt="">
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="field has-addons">
+						<p class="control">
+							<input class="input" [(ngModel)]="gif.bitly_url" size="10" type="text">
+						</p>
+						<p class="control">
+							<a class="button" id="button-{{i}}" ngxClipboard (cbOnSuccess)="isCopied(i)" [cbContent]="gif.url" ><i class="fa fa-copy"></i></a>
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<<div class="card">
+				<div class="card-image">
+					<figure class="image is-4by3">
+						<img src="" alt="Image">
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="field has-addons">
+						<p class="control">
+							<input class="input" [(ngModel)]="gif.bitly_url" size="10" type="text">
+						</p>
+						<p class="control">
+							<a class="button" id="button-{{i}}" ngxClipboard (cbOnSuccess)="isCopied(i)" [cbContent]="gif.url" ><i class="fa fa-copy"></i></a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4">	
+			<pagination-controls (pageChange)="p = $event"></pagination-controls>
+		</div>
+	</div>
+	
+</div>

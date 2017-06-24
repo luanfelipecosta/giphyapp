@@ -1,0 +1,17 @@
+<div class="hero">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 text-center">
+		<a href="/">
+			<img src="./assets/logo.png" class="hero-logo" alt="">
+		</a>
+			<form class="form-inline" (submit)="queryGifs();">
+				<div class="form-group">
+					<input class="search-bar" size="30" [(ngModel)]="query" name="query" type="text" placeholder="Procure por Gif's">
+				</div>
+				<div class="form-group">
+					<input class="search-submit" type="submit" value="Buscar" [disabled]="searchButtonState()">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
